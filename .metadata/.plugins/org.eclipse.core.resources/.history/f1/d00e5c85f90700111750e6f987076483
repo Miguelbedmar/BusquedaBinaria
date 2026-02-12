@@ -1,0 +1,65 @@
+package busqueda_binaria;
+
+import java.util.Scanner;
+
+public class BusquedaBinaria {
+
+	public static void main(String[] args) {
+		// Programa que buscara un numero del array
+		Scanner sc = new Scanner(System.in);
+		int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+		mostrarArray(array);
+		System.out.println("Numeros ordenados para la búsqueda");
+
+		//Se solicita un número al usuarioo
+		System.out.println("Ingrese el número de array que busques");
+
+		try {
+			int numBusca = sc.nextInt();
+
+		} catch (Exception e) {
+			System.err.println("Se ha producido un error");
+		}
+	}
+
+	public static int busquedaBinaria(int[] array, int ob) {
+		int inicio = 0;
+		int medio = 0;
+		int fin = array.length - 1;
+
+		while (inicio <= fin) {
+
+			medio = inicio + (fin - inicio) / 2;
+
+			if (array[medio] == ob) {
+				return medio;
+			}
+
+			if (array[medio] < ob) {
+				inicio = medio + 1;
+
+			} else {
+				fin = medio - 1;
+			}
+
+		}
+
+		return -1;
+	}
+
+	public static void mostrarArray(int[] array) {
+		boolean primer = true;
+		System.out.println("Array disponible");
+		for (int num : array) { // Recorre el array
+			if (!primer) {
+				System.out.println(",");
+			}
+			System.out.println(num);
+			primer = false;
+		}
+		System.out.println("]");
+
+	}
+
+}

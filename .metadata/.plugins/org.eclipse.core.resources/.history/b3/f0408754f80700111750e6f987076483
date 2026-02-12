@@ -1,0 +1,49 @@
+package busqueda_binaria;
+
+public class BusquedaBinaria {
+
+	public static void main(String[] args) {
+		// Programa que buscara un numero del array
+
+		int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+	}
+
+	public int busquedaBinaria(int[] array, int ob) {
+		int inicio = 0;
+		int medio = 0;
+		int fin = array.length - 1;
+
+		while (inicio <= fin) {
+
+			medio = inicio + (fin - inicio) / 2;
+
+			if (array[medio] == ob) {
+				return medio;
+			}
+
+			if (array[medio] < ob) {
+				inicio = medio + 1;
+
+			} else {
+				fin = medio - 1;
+			}
+
+		}
+
+		return -1;
+	}
+
+	public void mostrarArray(int[] array) {
+		boolean primer = true;
+		System.out.println("Array disponible");
+		for (int num : array) {
+			if (!primer) {
+				System.out.println(",");
+			}
+			System.out.println(num);
+		}
+
+	}
+
+}
